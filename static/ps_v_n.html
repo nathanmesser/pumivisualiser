@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.css">
+    <link rel="stylesheet" href="graphing.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script src='http://d3js.org/d3.v2.js'></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="graphing.js"></script>
+    <script src="maths.js"></script>
+    <script src="ps_v_n.js"></script>
+</head>
+<body>
+<div role="main" class="ui-content">
+    <h1>P(s+) verses N</h1>
+
+    <div class="controls">
+        <h2>Graph parameters</h2>
+
+        <div class="ui-field-contain">
+            <label for="alpha">Alpha</label><input type="range" id="alpha" value="0.01" data-mini="true" min="0" max="1"
+                                                   step="0.01" class="graph_relevant"/>
+        </div>
+        <div class="ui-field-contain">
+            <label for="beta">Beta</label><input type="range" id="beta" value="0.01" data-mini="true" min="0" max="1"
+                                                 step="0.01" class="graph_relevant"/>
+        </div>
+        <div class="ui-field-contain">
+            <label for="df">Degrees of Freedom</label><input type="range" id="df" value="1" data-mini="true" min="1"
+                                                             max="20" step="1" class="graph_relevant"/>
+        </div>
+        <div class="ui-field-contain">
+            <label for="py">P(y+)</label><input type="range" id="py" value="0.02" data-mini="true" min="0" max="0.5"
+                                                step="0.001" class="graph_relevant"/>
+        </div>
+        <div class="ui-field-contain">
+            <label for="mi">MI(X:Y)</label><input type="range" id="mi" value="0.01" data-mini="true" min="0" max="0.25"
+                                                  step="0.001" class="graph_relevant"/>
+        </div>
+        <h2>Corresponding solutions</h2>
+
+        <div class="ui-field-contain">
+            <label for="ps">P(s+)</label><input type="range" id="ps" value="0.01" data-mini="true" min="0" max="1"
+                                                step="0.01"/>
+        </div>
+        <div class="ui-field-contain">
+            <label for="N">N</label><input type="range" id="N" value="1" data-mini="true" min="1" max="5000" step="1"/>
+        </div>
+    </div>
+    <div class="graph_container">
+    <div id="ps_v_n" class="graph"></div>
+    <label for="minX">Min p(s+)</label><input type="range" id="minX" value="0.01" data-mini="true" min="0.01" max="1" step="0.01" class="graph_relevant"/>
+    <label for="maxX">Max p(s+)</label><input type="range" id="maxX" value="1" data-mini="true" min="0.01" max="1" step="0.01" class="graph_relevant"/>
+    </div>
+</div>
+<script>$(init);</script>
+</body>
+</html>

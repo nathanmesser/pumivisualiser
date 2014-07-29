@@ -1,0 +1,21 @@
+
+.graph_container {
+        border-width: 1px 0 0 0;
+        border-style: solid;
+}
+
+@media (min-width: 700px) {
+
+    .controls {
+        float: left;
+        width: 45%;
+    }
+
+    .graph_container {
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        padding: 16px;
+        float: left;
+        width: 50%;
+    }
+}

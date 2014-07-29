@@ -1,0 +1,17 @@
+path {
+    stroke: steelblue;
+    stroke-width: 1;
+    fill: none;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line, .y.axis line {
+    stroke: lightgrey;
+}
+
+.x.axis path, .y.axis path {
+    stroke: lightgrey;
+}
