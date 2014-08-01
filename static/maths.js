@@ -7,6 +7,15 @@ function n_v_ps(ncp,py,mi,ps) {
     return ncp/(((1 - py)/py)*(ps/(1-ps))*2*mi);
 }
 
+function ns_v_mi(ncp,py,n,mi) {
+    var a = (ncp * py) / (2*mi*(1-py));
+    return (n * a) / (n + a);
+}
+
+function mi_v_ns(ncp,py,n,ns) {
+    return (py*ncp*(n-ns)) / ((1-py)*ns*n*2);
+}
+
 function k(py,ps) {
     return ((1 - py)/py)*(ps/(1-ps));
 }

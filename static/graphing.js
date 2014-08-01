@@ -1,8 +1,8 @@
-function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_max,g_width,g_height) {
+function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_max,y_min,y_max,g_width,g_height) {
 
     $("#" + graph_id).empty();
 
-    var m = [20, 80, 80, 80];
+    var m = [20, 20, 80, 80];
     var width = g_width - m[1] - m[3];
     var height = g_height - m[0] - m[2];
     var sample = 500;
@@ -18,7 +18,7 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
     });
 
     var x = d3.scale.linear().domain([data_min, data_max]).range([0, width]);
-    var y = d3.scale.linear().domain(d3.extent(data.map(function(d){return d.data_y;}))).range([height, 0]);
+    var y = d3.scale.linear().domain([y_min, y_max]).range([height, 0]);
 
     var line = d3.svg.line()
         .x(function(d) { return x(d.data_x); })
@@ -30,7 +30,8 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
         .append("g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    var xAxis = d3.svg.axis().scale(x).tickSize(-height,5).tickFormat(d3.format('s'));
+    var noXTicks = width / 40;
+    var xAxis = d3.svg.axis().scale(x).tickSize(-height,5).tickFormat(d3.format('s')).ticks(noXTicks);
 
     graph.append("g")
         .attr("class", "x axis")
@@ -45,11 +46,11 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
         .attr("y", height + 40)
         .text(x_axis_label);
 
-    var yAxisLeft = d3.svg.axis().scale(y).orient("left").tickSize(-(width + 25),5).tickFormat(d3.format('s'));
+    var yAxisLeft = d3.svg.axis().scale(y).orient("left").tickSize(-width,5).tickFormat(d3.format('s'));
 
     graph.append("g")
         .attr("class", "y axis")
-        .attr("transform", "translate(-25,0)")
+        .attr("transform", "translate(0,0)")
         .call(yAxisLeft);
 
     graph.append("path").attr("d", line(data));
@@ -58,7 +59,7 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
     graph.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
-        .attr("y", -70)
+        .attr("y", -50)
         .attr("x", 0)
         .attr("transform", "rotate(-90)")
         .text(y_axis_label);

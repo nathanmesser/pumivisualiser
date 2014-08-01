@@ -15,3 +15,12 @@ path {
 .x.axis path, .y.axis path {
     stroke: lightgrey;
 }
+
+.explanation {
+    font-size: 12px;
+    color: gray;
+}
+
+.controls {
+    padding: 16px;
+}
