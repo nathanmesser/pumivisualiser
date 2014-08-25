@@ -9,12 +9,15 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
 
     var x_to_data = d3.scale.linear().domain([0, sample]).range([data_min, data_max]);
 
+
     var data = d3.range(sample).map(function(d){
         var data_x = x_to_data(d);
         return {
             data_x: data_x,
             data_y: func_to_graph(data_x)
         };
+    }).filter(function(d){
+        return d.data_y > y_min;
     });
 
     var x = d3.scale.linear().domain([data_min, data_max]).range([0, width]);
@@ -30,7 +33,7 @@ function graph(graph_id,x_axis_label,y_axis_label,func_to_graph,data_min,data_ma
         .append("g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    var noXTicks = width / 40;
+    var noXTicks = width / 50;
     var xAxis = d3.svg.axis().scale(x).tickSize(-height,5).tickFormat(d3.format('s')).ticks(noXTicks);
 
     graph.append("g")

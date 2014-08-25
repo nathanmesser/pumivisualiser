@@ -7,13 +7,21 @@ function n_v_ps(ncp,py,mi,ps) {
     return ncp/(((1 - py)/py)*(ps/(1-ps))*2*mi);
 }
 
+function calc_a(ncp,py,mi) {
+    return (ncp * py) / (2*mi*(1-py));
+}
+
 function ns_v_mi(ncp,py,n,mi) {
-    var a = (ncp * py) / (2*mi*(1-py));
+    var a = calc_a(ncp,py,mi);
     return (n * a) / (n + a);
 }
 
 function mi_v_ns(ncp,py,n,ns) {
     return (py*ncp*(n-ns)) / ((1-py)*ns*n*2);
+}
+
+function n_v_mi_ns(ncp,py,ns,mi) {
+    return (ns * py * ncp) / ((py * ncp) - ((1-py)*ns*2*mi));
 }
 
 function k(py,ps) {
