@@ -1,0 +1,22 @@
+Make a landing page
+Make a standard Power Analysis page
+Make mi_v_n use new layout
+
+Allow selection of MI range interested in
+Change labels
+
+For mi_v_ns
+Calculate min effect size observable under full supervision, limit to that
+Calculate corresponding max Positive labelled examples
+Limited Solutions boxes
+
+Display X,Y with dot
+
+Useful
+mi_v_n.html
+mi_v_ns.html
+
+Interest not useful
+mi_v_n_ns.html
+
+
