@@ -4,6 +4,10 @@ path {
     fill: none;
 }
 
+.graph_container--threshold path {
+    stroke: url(#gradient);
+}
+
 .axis {
     shape-rendering: crispEdges;
 }

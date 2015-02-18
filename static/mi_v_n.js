@@ -1,13 +1,16 @@
 
 function init() {
-        $( ".graph_relevant" ).slider({
+
+        var throttled_calc = _.debounce(calc_ncp_and_draw,300);
+
+        $( ".graph_relevant_slider" ).slider({
             stop: function( event, ui ) {
-                calc_ncp_and_draw();
+                throttled_calc();
             }
         });
 
         $(".graph_relevant").on("change", function(){
-            calc_ncp_and_draw();
+            throttled_calc();
         });
 
         $("#N").change(update_x);
@@ -46,9 +49,23 @@ function draw(ncp) {
     inv_plot_func = _.partial(mi_v_n,ncp_float,py,ps);
     plot_func = _.partial(n_v_mi,ncp_float,py,ps);
 
-    var min_x = parseFloat($("#minX").val());
-    var max_x = parseFloat($("#maxX").val());
-    graph("mi_v_n","mi","N",plot_func,min_x,max_x,available_width(),400);
+    var min_x = 0.00001;
+    var max_x = 0.2;
+
+    var max_y = parseInt($("#maxY").val());
+
+    var axes = {
+        x : {},
+        y : {}
+    };
+    axes.x.label = "I(X;Y)";
+    axes.x.min = min_x;
+    axes.x.max = max_x;
+    axes.y.label = "Total number of samples required";
+    axes.y.min = 0;
+    axes.y.max = max_y;
+
+    graph("mi_v_n",plot_func,available_width(),400, axes);
     if ($("#mi").val()) {
         update_x();
     }

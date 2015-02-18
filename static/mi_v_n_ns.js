@@ -56,7 +56,21 @@ function draw(ncp) {
     var max_x = 0.2;
     var min_y = 0;
     var max_y = parseInt($("#maxY").val());
-    graph("mi_v_n","I(X;Y)","Total number of samples required",plot_func,min_x,max_x,min_y,max_y,available_width(),400);
+
+    var min_valid_y = ns / py;
+
+    var axes = {
+        x : {},
+        y : {}
+    };
+    axes.x.label = "I(X;Y)";
+    axes.x.min = min_x;
+    axes.x.max = max_x;
+    axes.y.label = "Total number of samples required";
+    axes.y.min = min_y;
+    axes.y.max = max_y;
+
+    graph("mi_v_n",plot_func,available_width(),400,axes,min_valid_y);
     if ($("#mi").val()) {
         update_y();
     }

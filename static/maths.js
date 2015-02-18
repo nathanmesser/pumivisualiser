@@ -35,3 +35,12 @@ function mi_v_n(ncp,py,ps,n) {
 function n_v_mi(ncp,py,ps,mi) {
     return ncp / (k(py,ps)*2*mi);
 }
+
+function mi_v_n_fs(ncp,n) {
+    return ncp / (2*n);
+}
+
+function n_v_mi_fs(ncp,mi) {
+    return ncp / (2*mi);
+}
+
