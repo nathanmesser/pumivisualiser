@@ -1,6 +1,6 @@
-Make a landing page
-Make a standard Power Analysis page
-Make mi_v_n use new layout
+Make a landing page  - started
+Make a standard Power Analysis page - started
+Make mi_v_n use new layout - done
 
 Allow selection of MI range interested in
 Change labels

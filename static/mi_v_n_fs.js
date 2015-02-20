@@ -14,6 +14,7 @@ function init() {
 
         $("#N").change(update_x);
         $("#mi").change(update_y);
+        $("#miOfInterest").change(update_max_y);
 
         calc_ncp_and_draw();
 }
@@ -40,6 +41,10 @@ function update_y() {
     $("#N").val(inv_plot_func(parseFloat($("#mi").val())));
 }
 
+function update_max_y() {
+    $("#maxY").val(Math.floor(2 * inv_plot_func(parseFloat($("#miOfInterest").val()))));
+}
+
 
 function draw(ncp) {
     var ncp_float = parseFloat(ncp);
@@ -47,8 +52,10 @@ function draw(ncp) {
     inv_plot_func = _.partial(mi_v_n_fs,ncp_float);
     plot_func = _.partial(n_v_mi_fs,ncp_float);
 
-    var min_x = 0.00001;
-    var max_x = 0.2;
+    var mi_of_interest = parseFloat($("#miOfInterest").val());
+
+    var min_x = 0.000001;
+    var max_x = 2 * mi_of_interest;
 
     var max_y = parseInt($("#maxY").val());
 

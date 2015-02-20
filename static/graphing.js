@@ -5,9 +5,10 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
     var y_min = axes.y.min;
     var y_max = axes.y.max;
 
-    var x_to_data = d3.scale.linear().domain([0, width]).range([data_min, data_max]);
+    var sample = width / 2;
+    var x_to_data = d3.scale.linear().domain([0, sample]).range([data_min, data_max]);
 
-    var data = d3.range(width).map(function(d){
+    var data = d3.range(sample).map(function(d){
         var data_x = x_to_data(d);
         return {
             data_x: data_x,
@@ -21,7 +22,9 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
         .x(function(d) { return x(d.data_x); })
         .y(function(d) { return y(d.data_y); });
 
-    graph.append("path").attr("d", line(data));
+    console.log(line(data));
+
+    graph.append("path").attr("stroke-width", 3).attr("d", line(data));
 
     var circle = graph.append("circle").attr("r", 5).attr("visibility", "hidden");
 

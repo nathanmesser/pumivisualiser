@@ -49,8 +49,10 @@ function draw(ncp) {
     inv_plot_func = _.partial(mi_v_n,ncp_float,py,ps);
     plot_func = _.partial(n_v_mi,ncp_float,py,ps);
 
-    var min_x = 0.00001;
-    var max_x = 0.2;
+    var mi_of_interest = parseFloat($("#miOfInterest").val());
+
+    var min_x = 0.000001;
+    var max_x = 2 * mi_of_interest;
 
     var max_y = parseInt($("#maxY").val());
 
