@@ -5,7 +5,7 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
     var y_min = axes.y.min;
     var y_max = axes.y.max;
 
-    var sample = width / 2;
+    var sample = width;
     var x_to_data = d3.scale.linear().domain([0, sample]).range([data_min, data_max]);
 
     var data = d3.range(sample).map(function(d){

@@ -16,6 +16,7 @@ function init() {
         $("#mi").change(update_y);
         $("#miOfInterest").change(update_max_y);
 
+
         calc_ncp_and_draw();
 }
 
@@ -25,7 +26,7 @@ var inv_plot_func;
 function calc_ncp_and_draw() {
 
     var alpha = parseFloat($("#alpha").val());
-    var beta = parseFloat($("#beta").val());
+    var beta = 1.0 - parseFloat($("#beta").val());
     var df = parseInt($("#df").val());
 
     var url = "/calc_ncp_chi2/alpha/" + alpha + "/beta/" + beta + "/df/" + df;
@@ -42,7 +43,7 @@ function update_y() {
 }
 
 function update_max_y() {
-    $("#maxY").val(Math.floor(2 * inv_plot_func(parseFloat($("#miOfInterest").val()))));
+    $("#maxY").val(Math.floor(3 * inv_plot_func(parseFloat($("#miOfInterest").val()))));
 }
 
 
@@ -54,7 +55,7 @@ function draw(ncp) {
 
     var mi_of_interest = parseFloat($("#miOfInterest").val());
 
-    var min_x = 0.000001;
+    var min_x = 0.00001;
     var max_x = 2 * mi_of_interest;
 
     var max_y = parseInt($("#maxY").val());

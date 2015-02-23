@@ -37,10 +37,25 @@ function calc_ncp_and_draw() {
 }
 
 function update_x() {
+    var py = parseFloat($("#py").val());
+    var n = parseInt($("#N").val());
+    var max_y = n * py;
+    var newNs = parseInt($("#Ns").val());
+    if (newNs > max_y) {
+        $("#Ns").val(max_y);
+    }
     $("#mi").val(inv_plot_func(parseInt($("#Ns").val())));
 }
 
 function update_y() {
+    var py = parseFloat($("#py").val());
+    var n = parseInt($("#N").val());
+    var max_y = n * py;
+    var min_mi = inv_plot_func(max_y);
+    var newMi = parseInt($("#mi").val());
+    if (newMi < min_mi) {
+        $("#mi").val(min_mi);
+    }
     $("#Ns").val(Math.ceil(plot_func(parseFloat($("#mi").val()))));
 }
 
@@ -53,10 +68,13 @@ function draw(ncp) {
     plot_func = _.partial(ns_v_mi,ncp_float,py,n);
     var mi_of_interest = parseFloat($("#miOfInterest").val());
 
-    var min_x = 0.000001;
+    var min_x = 0.00001;
     var max_x = 2 * mi_of_interest;
     var min_y = 0;
     var max_y = n * py;
+
+    $("#Ns").attr('max', max_y);
+    $("#mi").attr('min', inv_plot_func(max_y));
 
     var axes = {
             x : {},

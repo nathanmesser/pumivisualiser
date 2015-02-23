@@ -21,6 +21,18 @@
     <p>This page looks at supervision determination in a positive/unlabelled data environment.</p>
     <p>Use this page to determine how many labelled examples are required in a Positive/Unlabelled data experiment,
         for a given total number of samples, and given probability of avoiding type I and type II errors</p>
+    <h2>Field Descriptions</h2>
+    <table data-role="table" class="key-table ui-responsive">
+        <thead><th>Field</th><th>Description</th></thead>
+        <tr><td>Estimate of P(y+)</td><td>Best estimate of the proportion of positive samples in the population</td></tr>
+        <tr><td>P(s+)</td><td>Proportion of training samples that are labelled</td></tr>
+        <tr><td>&alpha;</td><td>Significance level, i.e. the chance of a false positive or Type I error</td></tr>
+        <tr><td>Power</td><td>Power of the test, ie. the chance of NOT getting a false negative, or Type II error</td></tr>
+        <tr><td>N</td><td>Total number of samples</td></tr>
+        <tr><td>I(X:Y) level of interest</td><td>Level of Mutual Information of Interest, determines the scale of the X-axis of the graph</td></tr>
+        <tr><td>I(X:Y)</td><td>Mutual Information. Together with N shows a particular solution</td></tr>
+        <tr><td>Ns</td><td>Number of labelled samples required for a particular value of I(X:Y)</td></tr>
+    </table>
     <div class="controls">
         <h2>Problem Description</h2>
         <div class="ui-field-contain">

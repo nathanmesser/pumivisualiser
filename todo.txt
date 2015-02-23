@@ -2,13 +2,13 @@ Make a landing page  - started
 Make a standard Power Analysis page - started
 Make mi_v_n use new layout - done
 
-Allow selection of MI range interested in
-Change labels
+Allow selection of MI range interested in  (done, need to do initial max Y)   done
+Change labels                                                                     done
 
 For mi_v_ns
-Calculate min effect size observable under full supervision, limit to that
-Calculate corresponding max Positive labelled examples
-Limited Solutions boxes
+Calculate min effect size observable under full supervision, limit to that    done
+Calculate corresponding max Positive labelled examples                            done
+Limited Solutions boxes    done
 
 Display X,Y with dot
 

@@ -28,3 +28,7 @@ path {
 .controls {
     padding: 16px;
 }
+
+table, th, td {
+   border: 1px solid black;
+}
