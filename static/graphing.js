@@ -15,7 +15,7 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
             data_y: func_to_graph(data_x)
         };
     }).filter(function(d){
-        return d.data_y > y_min;
+        return d.data_y > y_min && d.data_y < y_max;
     });
 
     var line = d3.svg.line()

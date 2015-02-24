@@ -67,7 +67,7 @@ function draw(ncp) {
     axes.x.label = "I(X;Y)";
     axes.x.min = min_x;
     axes.x.max = max_x;
-    axes.y.label = "Total number of samples required";
+    axes.y.label = "N";
     axes.y.min = 0;
     axes.y.max = max_y;
 

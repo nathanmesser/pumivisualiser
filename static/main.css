@@ -29,6 +29,6 @@ path {
     padding: 16px;
 }
 
-table, th, td {
-   border: 1px solid black;
+.ui-field-contain label {
+    height: 2em;
 }
