@@ -86,6 +86,7 @@ function draw(ncp) {
     axes.y.label = "Ns";
     axes.y.min = min_y;
     axes.y.max = max_y;
+    axes.y.strict = true;
 
     graph("mi_v_ns",plot_func,available_width(),400, axes);
     if ($("#mi").val()) {
