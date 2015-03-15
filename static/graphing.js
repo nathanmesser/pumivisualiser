@@ -28,18 +28,27 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
     graph.append("path").attr("stroke-width", 3).attr("d", line(data));
 
     var circle = graph.append("circle").attr("r", 5).attr("visibility", "hidden");
+    var text = graph.append("text").attr("visibility", "hidden");
+
 
     var graphElement = document.querySelector(".graph");
     graphElement.addEventListener('mousemove',
         function showMouse(event) {
             var data_x = x_to_data(event.offsetX - 80);
             var data_y = func_to_graph(x_to_data(event.offsetX - 80));
-            circle.attr('cx', x(data_x));
-            circle.attr('cy', y(data_y));
+            var x_pos = x(data_x);
+            var y_pos = y(data_y);
+            circle.attr('cx', x_pos);
+            circle.attr('cy', y_pos);
+            text.attr('x', x_pos);
+            text.attr('y', y_pos);
+            text.text(data_x.toFixed(3) + '  :  ' + Math.floor(data_y));
             if (data_y >= y_min && data_y <= y_max && data_x >= data_min && data_x <= data_max) {
                 circle.attr('visibility', 'visible');
+                text.attr('visibility', 'visible');
             } else {
                 circle.attr("visibility", "hidden");
+                text.attr("visibility", "hidden");
             }
 
     });
@@ -65,7 +74,7 @@ function add_x_axis(graph, x, width, height, x_axis_label) {
         .text(x_axis_label);
 }
 
-function add_y_axis(graph, y, width, y_axis_label) {
+function add_y_axis(graph, y, width, height, y_axis_label) {
 
     var yAxisLeft = d3.svg.axis().scale(y).orient("left").tickSize(-width,5).tickFormat(d3.format('s'));
 
@@ -74,14 +83,12 @@ function add_y_axis(graph, y, width, y_axis_label) {
         .attr("transform", "translate(0,0)")
         .call(yAxisLeft);
 
-
-
     // Add a y-axis label.
     graph.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
         .attr("y", -50)
-        .attr("x", 0)
+        .attr("x", -height/2)
         .attr("transform", "rotate(-90)")
         .text(y_axis_label);
 
@@ -119,7 +126,7 @@ function graph( graph_id, func_to_graph, g_width, g_height, axes, lowest_valid_y
 
     add_x_axis(graph, x, width, height, axes.x.label);
 
-    add_y_axis(graph, y, width, axes.y.label);
+    add_y_axis(graph, y, width, height, axes.y.label);
 
     if (lowest_valid_y) {
         var valid_offset = (( lowest_valid_y * 100 ) / y_max) + "%";

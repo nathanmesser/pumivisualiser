@@ -52,7 +52,7 @@ function update_y() {
     var n = parseInt($("#N").val());
     var max_y = n * py;
     var min_mi = inv_plot_func(max_y);
-    var newMi = parseInt($("#mi").val());
+    var newMi = parseFloat($("#mi").val());
     if (newMi < min_mi) {
         $("#mi").val(min_mi);
     }
