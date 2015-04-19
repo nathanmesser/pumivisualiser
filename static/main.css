@@ -32,3 +32,31 @@ path {
 .ui-field-contain label {
     height: 2em;
 }
+
+.logo {
+  //background-image: url('uom_logo.png');
+  //background-repeat: no-repeat;
+  //background-size: 118px 50px;
+  //background-position: center;
+  //height: 50px;
+   float: left;
+   margin : 25px;
+   height : 50px;
+   width: 118px;
+}
+
+nav {
+    width: 100%;
+}
+
+.ui-content {
+    clear: both;
+}
+
+.nav-container {
+    //padding: 25px;
+}
+
+a.nav-link {
+    white-space: normal;
+}

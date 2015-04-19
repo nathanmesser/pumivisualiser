@@ -4,7 +4,7 @@
         border-style: solid;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 900px) {
 
     .controls {
         float: left;

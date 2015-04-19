@@ -2,22 +2,40 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="main.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
+<nav data-role="navbar">
+    <ul>
+        <li><a class="nav-link ui-btn-active">Introduction</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n.html">PU Sample Size Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_ns.html">PU Supervision Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Labelled Sample Size Determination</a></li>
+    </ul>
+</nav>
+<a href="http://www.manchester.ac.uk"><img class="logo" src="uom_logo.png"/></a>
+<h1>Power Analysis Visualisation</h1>
 <div role="main" class="ui-content">
-    <h1>Power Analysis Visualisation</h1>
+
     <p>These pages provide tools to determine the sample size or supervision requirements of an experiment, given details of that experiment.</p>
     <div class="ui-field-contain">
-        <a class="ui-link" href="mi_v_n.html">Sample size determination in a PU experiment (A Priori Power Analysis)</a>
+        <a class="ui-link" data-ajax="false" href="mi_v_n.html">Sample size determination in a PU experiment (A Priori Power Analysis)</a>
     </div>
     <div class="ui-field-contain">
-        <a class="ui-link" href="mi_v_ns.html">Supervision determination in a PU experiment</a>
+        <a class="ui-link" data-ajax="false" href="mi_v_ns.html">Supervision determination in a PU experiment</a>
     </div>
     <div class="ui-field-contain">
-        <a class="ui-link" href="mi_v_n_fs.html">Sample size determination in a fully supervised experiment (A Priori Power Analysis)</a>
+        <a class="ui-link" data-ajax="false" href="mi_v_n_fs.html">Sample size determination in a fully supervised experiment (A Priori Power Analysis)</a>
     </div>
+    <p>These pages were created by <a data-ajax="false" href="mailto:nathan.messer@gmail.com">Nathan Messer</a> as
+        part of a MSc thesis at the Department of Computer Science at the University of Manchester, to demonstrate,
+        visualise and allow the use of the work done by Gavin Brown and Konstantinos Sechidis on
+        <a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/posunlabelled/">Statistical Hypothesis Testing in
+            Positive Unlabelled Data</a>, details of which are available
+        <a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/posunlabelled/">here</a></p>
 </div>
 </body>
 </html>

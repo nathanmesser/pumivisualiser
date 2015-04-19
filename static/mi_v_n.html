@@ -3,71 +3,81 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="main.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="graphing.css">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <script src='http://d3js.org/d3.v2.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
     <script src="graphing.js"></script>
     <script src="maths.js"></script>
     <script src="mi_v_n.js"></script>
 </head>
 <body>
+<nav data-role="navbar">
+    <ul>
+        <li><a class="nav-link" data-ajax="false" href="index.html">Introduction</a></li>
+        <li><a class="nav-link ui-btn-active">PU Sample Size Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_ns.html">PU Supervision Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Labelled Sample Size Determination</a></li>
+    </ul>
+</nav>
+<a href="http://www.manchester.ac.uk"><img class="logo" src="uom_logo.png"/></a>
+<h1>Sample Size determination in a PU Experiment</h1>
 <div role="main" class="ui-content">
-    <h1>Sample Size determination in a PU Experiment</h1>
     <p>This page looks at sample size determination in a positive/unlabelled data environment.</p>
     <p>Use this page to determine how many examples in total required in a Positive/Unlabelled data experiment,
-        for a given proportion of labelled samples, and given probability of avoiding type I and type II errors</p>
+        for a given proportion of labelled samples, and given probability of avoiding type I and type II errors.</p>
     <div class="controls">
         <h2>Problem Description</h2>
         <div class="ui-field-contain">
-            <label for="df">Degrees of Freedom</label><input type="number" id="df" value="1" data-mini="true" min="1" class="graph_relevant"/>
+            <label for="df">Degrees of Freedom</label><input type="number" id="df" value="1" min="1" class="graph_relevant"/>
             <span class="explanation"></span>
         </div>
         <div class="ui-field-contain">
-            <label for="py">Estimate of P(y+)</label>
-            <input type="range" id="py" value="0.2" data-mini="true" min="0" max="1" step="0.01" class="graph_relevant_slider"/>
+            <label for="py">Estimate of \(p(y+)\)</label>
+            <input type="range" id="py" value="0.2" min="0" max="1" step="0.01" class="graph_relevant_slider"/>
             <span class="explanation">Best estimate of the proportion of positive samples in the population</span>
         </div>
         <div class="ui-field-contain">
-            <label for="ps">P(s+)<br/>&nbsp;</label>
-            <input type="range" id="ps" value="0.1" data-mini="true" min="0" max="1" step="0.01"  class="graph_relevant_slider"/>
+            <label for="ps">\(p(s+)\)<br/>&nbsp;</label>
+            <input type="range" id="ps" value="0.1" min="0" max="1" step="0.01"  class="graph_relevant_slider"/>
             <span class="explanation">Proportion of training samples that are labelled</span>
         </div>
         <h2>Experiment Parameters</h2>
         <div class="ui-field-contain">
-            <label for="alpha">&alpha;</label><input type="range" id="alpha" value="0.01" data-mini="true" min="0" max="1" step="0.01" class="graph_relevant_slider"/>
+            <label for="alpha">\(\alpha\)</label><input type="range" id="alpha" value="0.01" min="0" max="1" step="0.01" class="graph_relevant_slider"/>
             <span class="explanation">Significance level, i.e. the chance of a false positive or Type I error</span>
         </div>
         <div class="ui-field-contain">
-            <label for="beta">Power</label><input type="range" id="beta" value="0.99" data-mini="true" min="0.7" max="1" step="0.001" class="graph_relevant graph_relevant_slider"/>
+            <label for="beta">Power</label><input type="range" id="beta" value="0.99" min="0.7" max="1" step="0.001" class="graph_relevant graph_relevant_slider"/>
             <span class="explanation">Power of the test, ie. the chance of NOT getting a false negative, or Type II error</span>
         </div>
         <div class="ui-field-contain">
-            <label for="miOfInterest">I(X:Y) level of interest</label><input type="range" id="miOfInterest" value="0.125" data-mini="true" min="0" max="0.5" step="0.001" class="graph_relevant graph_relevant_slider"/>
+            <label for="miOfInterest">I(X;Y) level of interest</label><input type="range" id="miOfInterest" value="0.125" min="0" max="0.5" step="0.001" class="graph_relevant graph_relevant_slider"/>
             <span class="explanation">Level of Mutual Information of Interest, determines the scale of the X-axis of the graph</span>
         </div>
     </div>
     <div class="graph_container">
         <label for="maxY">Max Y <span class="explanation">Use this to control the maximum value shown on the Y-Axis below</span></label>
-        <input type="number" id="maxY" value="500" min="0" data-mini="true" class="graph_relevant"/>
+        <input type="number" id="maxY" value="500" min="0" class="graph_relevant"/>
         <div id="mi_v_n" class="graph"></div>
         <h2>Corresponding solutions</h2>
         <div class="explanation">
             <p>Use these fields to get a precise solution for either value based on the other.
-            <p>Choosing the effect size you wish to observe will give number number of samples required.
+            <p>Choosing the effect size you wish to observe will give number of samples required.
             <p>Choosing the number of samples available will give the minimum effect size that can be observed.
         </div>
         <div class="ui-field-contain">
-            <label for="mi">I(X:Y)</label><input type="number" id="mi" value="0.01" data-mini="true" min="0" max="1" step="0.001"/>
+            <label for="mi">I(X;Y)</label><input type="number" id="mi" value="0.01" min="0" max="1" step="0.001"/>
             <span class="explanation">Mutual Information. Together with N shows a particular solution</span>
         </div>
         <div class="ui-field-contain">
-            <label for="N">N</label><input type="number" id="N" value="1" data-mini="true" min="1" max="5000" step="1"/>
-            <span class="explanation">Number of samples required for a particular value of I(X:Y)</span>
+            <label for="N">N</label><input type="number" id="N" value="1" min="1" max="5000" step="1"/>
+            <span class="explanation">Number of samples required for a particular value of I(X;Y)</span>
         </div>
     </div>
 </div>
