@@ -23,8 +23,6 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
         .x(function(d) { return x(d.data_x); })
         .y(function(d) { return y(d.data_y); });
 
-    console.log(line(data));
-
     graph.append("path").attr("stroke-width", 3).attr("d", line(data));
 
     var circle = graph.append("circle").attr("r", 5).attr("visibility", "hidden");
@@ -42,7 +40,8 @@ function drawLine(graph, width, x, y, func_to_graph, axes) {
             circle.attr('cy', y_pos);
             text.attr('x', x_pos);
             text.attr('y', y_pos);
-            text.text(data_x.toFixed(3) + '  :  ' + Math.floor(data_y));
+            var overlay_text = axes.x.label +':' + data_x.toFixed(3) + ', ' + axes.y.label + ':' + Math.floor(data_y)
+            text.text(overlay_text);
             if (data_y >= y_min && data_y <= y_max && data_x >= data_min && data_x <= data_max) {
                 circle.attr('visibility', 'visible');
                 text.attr('visibility', 'visible');
