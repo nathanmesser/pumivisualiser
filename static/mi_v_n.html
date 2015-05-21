@@ -20,9 +20,9 @@
 <nav data-role="navbar">
     <ul>
         <li><a class="nav-link" data-ajax="false" href="index.html">Introduction</a></li>
-        <li><a class="nav-link ui-btn-active">PU Sample Size Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Sample Size Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n.html">PU Sample Size Determination</a></li>
         <li><a class="nav-link" data-ajax="false" href="mi_v_ns.html">PU Supervision Determination</a></li>
-        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Labelled Sample Size Determination</a></li>
     </ul>
 </nav>
 <a href="http://www.manchester.ac.uk"><img class="logo" src="uom_logo.png"/></a>
@@ -38,10 +38,11 @@
             <span class="explanation"></span>
         </div>
         <div class="ui-field-contain">
-            <label for="py">Estimate of \(p(y+)\)</label>
+            <label for="py">Prior knowledge of \(p(y+)\)</label>
             <input type="range" id="py" value="0.2" min="0" max="1" step="0.01" class="graph_relevant_slider"/>
-            <span class="explanation">Best estimate of the proportion of positive samples in the population</span>
+            <span class="explanation">Best guess of the proportion of positive samples in the population</span>
         </div>
+        <br/>
         <div class="ui-field-contain">
             <label for="ps">\(p(s+)\)<br/>&nbsp;</label>
             <input type="range" id="ps" value="0.1" min="0" max="1" step="0.01"  class="graph_relevant_slider"/>
@@ -66,7 +67,7 @@
         <input type="number" id="maxY" value="500" min="0" class="graph_relevant"/>
         <div id="mi_v_n" class="graph"></div>
         <h2>Corresponding solutions</h2>
-        <div class="explanation">
+        <div class="explanation-font">
             <p>Use these fields to get a precise solution for either value based on the other.
             <p>Choosing the effect size you wish to observe will give number of samples required.
             <p>Choosing the number of samples available will give the minimum effect size that can be observed.

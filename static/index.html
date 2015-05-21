@@ -11,9 +11,9 @@
 <nav data-role="navbar">
     <ul>
         <li><a class="nav-link ui-btn-active">Introduction</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Sample Size Determination</a></li>
         <li><a class="nav-link" data-ajax="false" href="mi_v_n.html">PU Sample Size Determination</a></li>
         <li><a class="nav-link" data-ajax="false" href="mi_v_ns.html">PU Supervision Determination</a></li>
-        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Labelled Sample Size Determination</a></li>
     </ul>
 </nav>
 <a href="http://www.manchester.ac.uk"><img class="logo" src="uom_logo.png"/></a>
@@ -22,20 +22,35 @@
 
     <p>These pages provide tools to determine the sample size or supervision requirements of an experiment, given details of that experiment.</p>
     <div class="ui-field-contain">
+        <a class="ui-link" data-ajax="false" href="mi_v_n_fs.html">Sample size determination in a fully supervised experiment (A Priori Power Analysis)</a>
+        <p>For a fully labelled experiment, i.e. where all examples are labelled either positive or negative,
+            this page allows the use of power analysis to determine the sample size required. The sample size will depend on the acceptable risk of a false positive,
+            the acceptable risk of a false negative, and the size of the effect being tested for.</p>
+    </div>
+    <div class="ui-field-contain">
         <a class="ui-link" data-ajax="false" href="mi_v_n.html">Sample size determination in a PU experiment (A Priori Power Analysis)</a>
+        <p>The page is concerned with Positive/Unlabelled (PU) data.
+            That is, data where some examples have positive labels, and some examples have no labels and could be positive or negative.
+            As in the page above, this page allows for the determination of a sample size required to observe a given effect size, given the risk of a false positive and the risk of a false negative.
+            Two other variables also affect the sample size required, the proportion of labelled sampled, and the prior knowledge of the number of positive examples in the population.
+        </p>
     </div>
     <div class="ui-field-contain">
         <a class="ui-link" data-ajax="false" href="mi_v_ns.html">Supervision determination in a PU experiment</a>
-    </div>
-    <div class="ui-field-contain">
-        <a class="ui-link" data-ajax="false" href="mi_v_n_fs.html">Sample size determination in a fully supervised experiment (A Priori Power Analysis)</a>
+        <p>This page allows the novel capability of supervision determination.
+            As in the previous page, this is looking at an experiment to detect a given effect size, with a given chance of a false positive, and a given chance of a false negative.
+            However in this case, the number of samples is fixed, and the number of labelled samples required is determined.
+        </p>
     </div>
     <p>These pages were created by <a data-ajax="false" href="mailto:nathan.messer@gmail.com">Nathan Messer</a> as
         part of a MSc thesis at the Department of Computer Science at the University of Manchester, to demonstrate,
-        visualise and allow the use of the work done by Gavin Brown and Konstantinos Sechidis on
-        <a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/posunlabelled/">Statistical Hypothesis Testing in
-            Positive Unlabelled Data</a>, details of which are available
-        <a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/posunlabelled/">here</a></p>
+        visualise and allow the use of the work done by Konstantinos Sechidis, Borja Calvo and Gavin Brown on Statistical Hypothesis Testing in Positive Unlabeled Data.
+        <br/>
+        <h3>The paper:</h3>
+        <a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/publications/ecml2014pu.pdf">Statistical Hypothesis Testing in Positive Unlabeled Data</a>.<br>
+Konstantinos Sechidis, Borja Calvo and Gavin Brown. <br>
+<b>European Conference on Machine Learning (ECML). France, Sept 2014.</b><br>
+<a data-ajax="false" href="http://www.cs.man.ac.uk/~gbrown/posunlabelled/">Supplementary material</a><br>
 </div>
 </body>
 </html>

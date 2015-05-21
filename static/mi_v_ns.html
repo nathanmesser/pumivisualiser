@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="graphing.css">
     <script src='http://d3js.org/d3.v2.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
     <script src="graphing.js"></script>
     <script src="maths.js"></script>
     <script src="mi_v_ns.js"></script>
@@ -17,9 +20,9 @@
 <nav data-role="navbar">
     <ul>
         <li><a class="nav-link" data-ajax="false" href="index.html">Introduction</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Sample Size Determination</a></li>
         <li><a class="nav-link" data-ajax="false" href="mi_v_n.html">PU Sample Size Determination</a></li>
-        <li><a class="nav-link ui-btn-active">PU Supervision Determination</a></li>
-        <li><a class="nav-link" data-ajax="false" href="mi_v_n_fs.html">Labelled Sample Size Determination</a></li>
+        <li><a class="nav-link" data-ajax="false" href="mi_v_ns.html">PU Supervision Determination</a></li>
     </ul>
 </nav>
 <a href="http://www.manchester.ac.uk"><img class="logo" src="uom_logo.png"/></a>
@@ -35,9 +38,10 @@
             <span class="explanation"></span>
         </div>
         <div class="ui-field-contain">
-            <label for="py">Estimate of \(p(y+)\)</label><input type="range" id="py" value="0.2" min="0" max="1" step="0.01" class="graph_relevant graph_relevant_slider"/>
-            <span class="explanation">Best Estimate of proportion of positive examples in the general population</span>
+            <label for="py">Prior knowledge of \(p(y+)\)</label><input type="range" id="py" value="0.2" min="0" max="1" step="0.01" class="graph_relevant graph_relevant_slider"/>
+            <span class="explanation">Best guess of proportion of positive examples in the general population</span>
         </div>
+        <br/>
         <h2>Experiment parameters</h2>
         <div class="ui-field-contain">
             <label for="alpha">\(\alpha\)</label><input type="range" id="alpha" value="0.01" min="0" max="0.2" step="0.001" class="graph_relevant graph_relevant_slider"/>
@@ -59,7 +63,7 @@
     <div class="graph_container">
         <div id="mi_v_ns" class="graph"></div>
         <h2>Corresponding solutions</h2>
-        <div class="explanation">
+        <div class="explanation-font">
             <p>Use these fields to get a precise solution for either value based on the other.
             <p>Choosing the effect size you wish to observe will give number of labelled samples required.
             <p>Choosing the number of labelled samples available will give the minimum effect size that can be observed.

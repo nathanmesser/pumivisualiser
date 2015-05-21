@@ -4,11 +4,11 @@
         border-style: solid;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1008px) {
 
     .controls {
         float: left;
-        width: 45%;
+        width: 46%;
     }
 
     .graph_container {
@@ -16,6 +16,6 @@
         border-style: solid;
         padding: 16px;
         float: left;
-        width: 45%;
+        width: 46%;
     }
 }
