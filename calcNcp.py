@@ -17,7 +17,7 @@ def calc_ncp(alpha,beta,df):
     x = chi2.ppf(1-alpha,df)
     def to_minimize(ncp):
         return math.fabs(beta - ncx2.cdf(x,df,ncp))
-    res = minimize_scalar(to_minimize)
+    res = minimize_scalar(to_minimize, method='golden')
     return res.x
 
 def calc_from_json(args):
